@@ -9,19 +9,14 @@ public class runnable {
 	private static boolean press0= false;
 	
   public static void main(String[] args) {
-	  
 	  creaArrey();
-
     while (true) {
       try {
-       
       inserisci();
       if(press0) {
     	  break;
       }
- 
       } catch (Exception e) {
-
         System.out.println("Errore: " + e.getMessage() + ". Riprova.");
       }
     }
@@ -29,15 +24,10 @@ public class runnable {
   
 //  <<<<<<<<<<<<<<<<<<<FUNZIONE CHE CREA L'ARRAY>>>>>>>>>>>>>>>>>>>
   public static int[] creaArrey() {
-	  
-	    Random random = new Random();
-
-	  
+	    Random random = new Random(); 
 	    for (int i = 0; i < array.length; i++) {
 	      array[i] = random.nextInt(10) + 1;
 	    }
-
-	  
 	    System.out.println("Array iniziale: "+ Arrays.toString(array));
 return array;
   }
@@ -45,7 +35,6 @@ return array;
   
 //<<<<<<<<<<<<<<<<<<<FUNZIONE CHE MODIFICA L'ARRAY>>>>>>>>>>>>>>>>>>>
   public static boolean inserisci() throws Exception {
-	 
 	  System.out.println("Inserisci la posizione (da 1 a 5, 0 per uscire): ");
       int posizione = scanner.nextInt();
       if (posizione == 0) {
@@ -67,5 +56,4 @@ return array;
       press0 = false;
 	return press0;
   }
-  
 }
