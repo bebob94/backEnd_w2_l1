@@ -4,48 +4,68 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class runnable {
+	private static int[] array = new int[5];
+	private static Scanner scanner = new Scanner(System.in);
+	private static boolean press0= false;
 	
   public static void main(String[] args) {
 	  
-    int[] array = new int[5];
-    Random random = new Random();
-
-    // Inizializza l'array con valori casuali tra 1 e 10
-    for (int i = 0; i < array.length; i++) {
-      array[i] = random.nextInt(10) + 1;
-    }
-
-    // Stampa l'array iniziale
-    System.out.println("Array iniziale: "+ Arrays.toString(array));
-
-    Scanner scanner = new Scanner(System.in);
+	  creaArrey();
 
     while (true) {
       try {
-        // Chiede all'utente di inserire la posizione e il valore
-        System.out.println("Inserisci la posizione (da 1 a 5, 0 per uscire): ");
-        int posizione = scanner.nextInt();
-        if (posizione == 0) {
-          break;
-        }
-        if (posizione < 1 || posizione > 5) {
-          throw new Exception("Posizione non valida");
-        }
-        System.out.println("Inserisci il valore (da 1 a 10): ");
-        int valore = scanner.nextInt();
-        if (valore < 1 || valore > 10) {
-          throw new Exception("Valore non valido");
-        }
-
-        // Aggiorna l'array con il valore inserito dall'utente
-        array[posizione - 1] = valore;
-
-        // Stampa il nuovo stato dell'array
-        System.out.println("Nuovo stato dell'array: " + Arrays.toString(array));
+       
+      inserisci();
+      if(press0) {
+    	  break;
+      }
+ 
       } catch (Exception e) {
-        // Gestisce l'eccezione e stampa un messaggio di errore
+
         System.out.println("Errore: " + e.getMessage() + ". Riprova.");
       }
     }
   }
+  
+//  <<<<<<<<<<<<<<<<<<<FUNZIONE CHE CREA L'ARRAY>>>>>>>>>>>>>>>>>>>
+  public static int[] creaArrey() {
+	  
+	    Random random = new Random();
+
+	  
+	    for (int i = 0; i < array.length; i++) {
+	      array[i] = random.nextInt(10) + 1;
+	    }
+
+	  
+	    System.out.println("Array iniziale: "+ Arrays.toString(array));
+return array;
+  }
+  
+  
+//<<<<<<<<<<<<<<<<<<<FUNZIONE CHE MODIFICA L'ARRAY>>>>>>>>>>>>>>>>>>>
+  public static boolean inserisci() throws Exception {
+	 
+	  System.out.println("Inserisci la posizione (da 1 a 5, 0 per uscire): ");
+      int posizione = scanner.nextInt();
+      if (posizione == 0) {
+    press0 = true;
+    	 return press0;
+      }
+      if (posizione < 1 || posizione > 5) {
+          throw new Exception("Posizione non valida");
+      }
+      System.out.println("Inserisci il valore (da 1 a 10): ");
+      int valore = scanner.nextInt();
+      if (valore < 1 || valore > 10) {
+        throw new Exception("Valore non valido");
+      }
+
+      array[posizione - 1] = valore;
+
+      System.out.println("Nuovo stato dell'array: " + Arrays.toString(array));
+      press0 = false;
+	return press0;
+  }
+  
 }
