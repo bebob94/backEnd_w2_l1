@@ -1,21 +1,18 @@
 package gestione_errori_es2;
-
 import java.util.Scanner;
 
 public class runnable {
 	private static Scanner input = new Scanner(System.in);
 	private static double km, litri, kmPerLitro;
 
-    public static void main(String[] args) throws Exception {
-    	input();
-    	
+    public static void main(String[] args) throws Exception {   	
+    	input();    	
         try {
            calcola();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
-    
     
 //<<<<<<<<<<<<<<<<<<<<<<METODO INPUT>>>>>>>>>>>>>>>>>>>>>>
     public static void input() {
